@@ -31,7 +31,28 @@ public class HomePage extends BasePage {
 	
 	@FindBy(xpath="(//h2/b)[1]")
 	WebElement EnteraccInfoText;
+	
+	@FindBy(css="div.login-form h2")
+	WebElement LoginTextElement;
+	
+	@FindBy(css="input[data-qa='login-email']")
+	WebElement LoginEmailInput;
+	
+	@FindBy(css="input[data-qa='login-password']")
+	WebElement LoginPasswordInput;
+	
+	@FindBy(css="button[data-qa='login-button'")
+	WebElement LoginButton;
+	
+	@FindBy(css="form[action='/login'] p")
+	WebElement loginErrorText;
 
+	@FindBy(css="form[action='/signup']")
+	WebElement userAlreadyExistsText;
+	
+	@FindBy(css="a[href='/contact_us']")
+	WebElement contactUsLink;
+	
 	public HomePage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -57,6 +78,11 @@ public class HomePage extends BasePage {
 		return NewUserSignupText.isDisplayed();
 	}
 	
+	public boolean isLoginToAccountTextVisible() {
+		
+		return LoginTextElement.isDisplayed();
+	}
+	
 	public void enterName(String name) {
 		type(NameSignUpInput, name);
 	}
@@ -76,5 +102,32 @@ public class HomePage extends BasePage {
 	public String getEnterInfoText() {
 		return EnteraccInfoText.getText();
 	}
+	
+	public void enterLoginEmail(String email) {
+		LoginEmailInput.clear();
+		LoginEmailInput.sendKeys(email);
+	}
+	
+	public void enterLoginPassword(String password) {
+		LoginPasswordInput.clear();
+		LoginPasswordInput.sendKeys(password);
+	}
+	
+	public void clickLoginButton() {
+		LoginButton.click();
+	}
+	
+	public String getLoginErrorText() {
+		return loginErrorText.getText();
+	}
+	
+	public String getExistingUserErrorTest() {
+		return userAlreadyExistsText.getText();
+	}
+	
+	public void openContactUsPage() {
+		contactUsLink.click();
+	}
+	
 	
 }

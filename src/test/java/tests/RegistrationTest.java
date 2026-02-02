@@ -5,6 +5,7 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import drivers.DriverManager;
+import pages.AccountHomePage;
 import pages.HomePage;
 import pages.RegistrationPage;
 import pages.SignUpConfirmationPage;
@@ -13,19 +14,13 @@ public class RegistrationTest extends BaseTest {
 
 	@Test
 	public void userCanRegisterSuccessfully() {
-
-	    HomePage hp = new HomePage(DriverManager.getDriver());
-	    Assert.assertTrue(hp.isLoaded(), "Home Page is not displayed");
-	    Assert.assertTrue(hp.isSignUpLoginButtonVisible(), "Signup/Login button is not visible");
-        Reporter.log("✔ Signup/Login button is visible", true);
-	    hp.clickSignUpLogin();
-		Assert.assertTrue(hp.isNewUserSignupTextVisible(), "New User Signup Text is not visible");
-
+		
+		HomePage hp = new HomePage(DriverManager.getDriver());
+		verifyNewSignUpVisible();
 		hp.enterName("APP");
-		hp.enterEmail("qwertyuz@gmail.com");
+		hp.enterEmail("qwertyuuuudduaaaauz@gmail.com");
 		hp.clickSignUp();
 		Assert.assertEquals(hp.getEnterInfoText(), "ENTER ACCOUNT INFORMATION");
-		
 		RegistrationPage rp = new RegistrationPage(DriverManager.getDriver());
 		rp.selectMaleTitle();
 		rp.enterName("APP");
@@ -50,6 +45,21 @@ public class RegistrationTest extends BaseTest {
 		SignUpConfirmationPage sp = new SignUpConfirmationPage(DriverManager.getDriver());
 		Assert.assertEquals(sp.getMessage(), "ACCOUNT CREATED!");
 		sp.clickContinue();
+		AccountHomePage ap = new AccountHomePage(DriverManager.getDriver());
+		Assert.assertEquals(ap.getLoggedInLinkText(), "Logged in as APP");	
+		
+		ap.deleteAccount();
+		Assert.assertEquals(ap.getDeletionText(), "ACCOUNT DELETED!");
+	}
+	
+	@Test
+	public void existingUserTest() {
+		verifyNewSignUpVisible();
+		HomePage hp = new HomePage(DriverManager.getDriver());
+		hp.enterName("abcd");
+		hp.enterEmail("mmt@gmail.com");
+		hp.clickSignUp();
+		Assert.assertEquals(hp.getExistingUserErrorTest(), "Email Address already exist!");
 		
 	}
 
