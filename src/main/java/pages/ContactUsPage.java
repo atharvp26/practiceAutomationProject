@@ -22,7 +22,7 @@ public class ContactUsPage extends BasePage {
 	@FindBy(css="input[data-qa='subject']")
 	WebElement subjectInput;
 	
-	@FindBy(css="input[data-qa='message']")
+	@FindBy(css="textarea[data-qa='message']")
 	WebElement messageInput;
 	
 	@FindBy(css="input[name='upload_file']")
@@ -42,15 +42,15 @@ public class ContactUsPage extends BasePage {
 	}
 	
 	public void enteremail(String email) {
-		nameInput.sendKeys(email);
+		emailInput.sendKeys(email);
 	}
 	
 	public void enterSubject(String subject) {
-		nameInput.sendKeys(subject);
+		subjectInput.sendKeys(subject);
 	}
 	
 	public void enterMessage(String message) {
-		nameInput.sendKeys(message);
+		messageInput.sendKeys(message);
 	}
 	
 	public void uploadFile(String path) {

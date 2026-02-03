@@ -53,6 +53,12 @@ public class HomePage extends BasePage {
 	@FindBy(css="a[href='/contact_us']")
 	WebElement contactUsLink;
 	
+	@FindBy(xpath="//li/a[@href='/test_cases']")
+	WebElement TestCases;
+	
+	@FindBy(xpath="//li/a[@href='/products']")
+	WebElement Products;
+	
 	public HomePage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -127,6 +133,14 @@ public class HomePage extends BasePage {
 	
 	public void openContactUsPage() {
 		contactUsLink.click();
+	}
+	
+	public void openTestCases() {
+		TestCases.click();
+	}
+	
+	public void openProductPage() {
+		Products.click();
 	}
 	
 	
