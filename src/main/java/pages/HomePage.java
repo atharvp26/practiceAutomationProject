@@ -3,6 +3,7 @@ package pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,6 +60,21 @@ public class HomePage extends BasePage {
 	
 	@FindBy(xpath="//li/a[@href='/products']")
 	WebElement Products;
+	
+	@FindBy(css="div.footer-widget div.row")
+	WebElement Footer;
+	
+	@FindBy(css="div.single-widget h2")
+	WebElement SubscriptionText;
+	
+	@FindBy(css="input#susbscribe_email")
+	WebElement SubscribeEmailBox;
+	
+	@FindBy(css="div.alert-success")
+	WebElement subscriptionSuccessAlert;
+	
+	@FindBy(css="button#subscribe")
+	WebElement subscribeButton;
 	
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -153,6 +169,29 @@ public class HomePage extends BasePage {
 			driver.navigate().refresh();
 		}
 		Products.click();
+	}
+	
+	public void scrollToFooter() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", Footer);
+	}
+	
+	public String getSubscriptionText() {
+		return SubscriptionText.getText();
+	}
+	
+	public void enterSubEmail(String email) {
+		SubscribeEmailBox.sendKeys(email);
+	}
+	
+	public String getsubscriptionSuccessAlertText() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(subscriptionSuccessAlert));
+		return subscriptionSuccessAlert.getText();
+	}
+	
+	public void clicksubscribeButton() {
+		click(subscribeButton);
 	}
 	
 	
