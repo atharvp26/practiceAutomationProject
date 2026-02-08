@@ -2,6 +2,7 @@ package pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -140,6 +141,17 @@ public class HomePage extends BasePage {
 	}
 	
 	public void openProductPage() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(Products));
+		int size = (driver.findElements(By.xpath("//li/a[@href='/products']"))).size();
+		System.out.println(size);
+		if(isAdPresent()) {
+			driver.navigate().refresh();
+		}
+		Products.click();
+		if(isAdPresent()) {
+			driver.navigate().refresh();
+		}
 		Products.click();
 	}
 	

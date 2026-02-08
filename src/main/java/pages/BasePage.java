@@ -23,7 +23,6 @@ public class BasePage {
 		ele.clear();
 		ele.sendKeys(text);
 	}
-	
 
 	public void click(By ele) {
 		driver.findElement(ele).click();
@@ -32,9 +31,18 @@ public class BasePage {
 	public void click(WebElement ele) {
 		ele.click();
 	}
-	
+
 	public void selectFromDropDownByText(WebElement ele, String text) {
 		Select newselect = new Select(ele);
 		newselect.selectByVisibleText(text);
+	}
+
+	public boolean isAdPresent() {
+
+		if (DriverManager.getDriver().getCurrentUrl().contains("")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

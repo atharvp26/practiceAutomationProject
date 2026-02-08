@@ -51,5 +51,15 @@ public class BaseTest {
 	    hp.clickSignUpLogin();
 	    Assert.assertTrue(hp.isLoginToAccountTextVisible(), "Login to your account Text is not visible");
 	}
+	
+	public boolean isAdPresent() {
+		
+		if(DriverManager.getDriver().getCurrentUrl().contains("")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }

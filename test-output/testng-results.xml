@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-03T07:48:31 IST" name="Suite" finished-at="2026-02-03T07:48:43 IST" duration-ms="11752">
+  <suite started-at="2026-02-08T14:24:50 IST" name="Suite" finished-at="2026-02-08T14:25:05 IST" duration-ms="15301">
     <groups>
     </groups>
-    <test started-at="2026-02-03T07:48:31 IST" name="tests" finished-at="2026-02-03T07:48:43 IST" duration-ms="11752">
-      <class name="tests.ContactUsTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.ContactUsTest@533bda92]" started-at="2026-02-03T07:48:11 IST" name="setUp" finished-at="2026-02-03T07:48:31 IST" duration-ms="20167" status="PASS">
+    <test started-at="2026-02-08T14:24:50 IST" name="tests" finished-at="2026-02-08T14:25:05 IST" duration-ms="15301">
+      <class name="tests.SearchProduct">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.SearchProduct@304bb45b]" started-at="2026-02-08T14:24:44 IST" name="setUp" finished-at="2026-02-08T14:24:50 IST" duration-ms="5835" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,15 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testContactPage()[pri:0, instance:tests.ContactUsTest@533bda92]" started-at="2026-02-03T07:48:31 IST" name="testContactPage" finished-at="2026-02-03T07:48:43 IST" duration-ms="11584" status="PASS">
+        <test-method signature="searchProductTest()[pri:0, instance:tests.SearchProduct@304bb45b]" started-at="2026-02-08T14:24:50 IST" name="searchProductTest" finished-at="2026-02-08T14:25:05 IST" duration-ms="15238" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testContactPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ContactUsTest@533bda92]" started-at="2026-02-03T07:48:43 IST" name="tearDown" finished-at="2026-02-03T07:48:45 IST" duration-ms="2410" status="PASS">
+        </test-method> <!-- searchProductTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProduct@304bb45b]" started-at="2026-02-08T14:25:05 IST" name="tearDown" finished-at="2026-02-08T14:25:06 IST" duration-ms="463" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- tests.ContactUsTest -->
+      </class> <!-- tests.SearchProduct -->
     </test> <!-- tests -->
   </suite> <!-- Suite -->
 </testng-results>

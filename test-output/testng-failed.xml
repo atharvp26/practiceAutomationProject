@@ -5,13 +5,13 @@
   <test thread-count="5" name="tests(failed)">
     <parameter name="browserName" value="chrome"/>
     <classes>
-      <class name="tests.ContactUsTest">
+      <class name="tests.SearchProduct">
         <methods>
-          <include name="testContactPage"/>
+          <include name="searchProductTest"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- tests.ContactUsTest -->
+      </class> <!-- tests.SearchProduct -->
     </classes>
   </test> <!-- tests(failed) -->
 </suite> <!-- Failed suite [Suite] -->
